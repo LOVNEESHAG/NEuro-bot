@@ -1,12 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
-  withCredentials: true,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  baseURL: import.meta.env.VITE_API_URL + "/api", ✅
 });
+
+export default api;
 
 // Response interceptor for auth errors
 api.interceptors.response.use(
