@@ -36,6 +36,10 @@ app.use('/api/reports', require('./routes/reportRoutes'));
 app.use('/api/user', require('./routes/userRoutes'));
 app.use('/api/tools', require('./routes/toolsRoutes'));
 
+app.get("/", (req, res) => {
+  res.send("Neuro Bot API is running 🚀");
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
