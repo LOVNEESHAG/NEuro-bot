@@ -7,6 +7,9 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+
+  base: '/', // 🔥 THIS FIXES YOUR ISSUE
+
   server: {
     port: 5173,
     proxy: {
