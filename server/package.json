@@ -1,5 +1,5 @@
 {
-  "name": "Neuro Sync AI-server",
+  "name": "Neuro-Sync-AI-server",
   "version": "1.0.0",
   "description": "Neuro Sync AI AI Mental Health Screening Platform - Backend",
   "main": "server.js",

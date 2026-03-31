@@ -3,13 +3,23 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import { API } from "./config";
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const testAPI = async () => {
+    console.log("clicked"); 
+  const res = await fetch(`${API}/api/health`);
+  const data = await res.json();
+  console.log(data);
+};  
   return (
     <>
-      <section id="center">
+    <button onClick={testAPI} style={{padding: "10px", margin: "20px"}}>
+      Test Backend
+    </button>
+
+    <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
