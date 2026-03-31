@@ -12,7 +12,7 @@ const api = axios.create({
   }
 });
 
-// 🔥 TOKEN INTERCEPTOR
+// 🔥 token attach
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -21,16 +21,14 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// 🔥 RESPONSE INTERCEPTOR
+// 🔥 401 handle
 api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
-        window.location.href = '/login';
-      }
+  (res) => res,
+  (err) => {
+    if (err.response?.status === 401) {
+      localStorage.removeItem("token"); // cleanup
     }
-    return Promise.reject(error);
+    return Promise.reject(err);
   }
 );
 
